@@ -7,7 +7,7 @@
 Published package:
 
 ```powershell
-npx -y @your-org/the-living-project-cli init
+npx -y @the-living-project/the-living-project-cli init
 ```
 
 Local package folder:

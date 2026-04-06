@@ -1,0 +1,46 @@
+name: CI The Living Project
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-package:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: deploy/organic-development
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Prepare Release Assets
+        run: node .\scripts\prepare-release.mjs
+
+      - name: Show CLI Help
+        run: node .\bin\living-project.js help
+
+      - name: Smoke Test Workspace Init
+        run: |
+          node .\bin\living-project.js init "CI Workspace" --root .\ci-output --skills-root .\ci-skills --client none
+          node .\bin\living-project.js doctor "CI Workspace" --root .\ci-output --skills-root .\ci-skills --client none
+
+      - name: Verify Installed Files
+        run: |
+          if (-not (Test-Path '.\ci-output\CI Workspace\START-HERE.md')) { throw 'Missing START-HERE.md' }
+          if (-not (Test-Path '.\ci-output\CI Workspace\.living-project\QUICKSTART.md')) { throw 'Missing QUICKSTART.md' }
+          if (-not (Test-Path '.\ci-output\CI Workspace\.living-project\phases\01-seed.md')) { throw 'Missing phase files' }
+
+      - name: Pack npm Tarball
+        run: npm pack

@@ -51,6 +51,15 @@ npx -y @the-living-project/the-living-project-cli upgrade
 npx -y @the-living-project/the-living-project-cli doctor
 ```
 
+## Current Release
+
+The current stable release is `3.0.3`.
+
+See:
+
+- `RELEASE-NOTES-3.0.3.md` in the repo root for the release summary
+- `CHEAT-SHEET.md` for the employee handout
+
 ## Branding And Release
 
 Edit `release.config.json` to set your author name, npm package name, and repository URLs.
