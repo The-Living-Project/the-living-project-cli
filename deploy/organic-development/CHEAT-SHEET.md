@@ -129,8 +129,8 @@ Use $living-project in this folder and guide me to the right next step.
 ### Upgrade Commands
 
 ```powershell
-living-project upgrade
-living-project doctor
+npx -y @the-living-project/the-living-project-cli upgrade
+npx -y @the-living-project/the-living-project-cli doctor
 ```
 
 What upgrades do:

@@ -46,9 +46,9 @@ Share a newer version of this package and rerun the same command.
 ## Commands
 
 ```powershell
-living-project init
-living-project upgrade
-living-project doctor
+npx -y @the-living-project/the-living-project-cli init
+npx -y @the-living-project/the-living-project-cli upgrade
+npx -y @the-living-project/the-living-project-cli doctor
 ```
 
 ## Branding And Release

@@ -1,10 +1,9 @@
 {
   "name": "@the-living-project/the-living-project-cli",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "One-line installer and upgrader for The Living Project framework",
   "type": "module",
   "bin": {
-    "living-project": "bin/living-project.js",
     "the-living-project-cli": "bin/living-project.js"
   },
   "files": [

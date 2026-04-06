@@ -46,9 +46,9 @@ Share a newer version of this package and rerun the same command.
 ## Commands
 
 ```powershell
-living-project init
-living-project upgrade
-living-project doctor
+npx -y __PACKAGE_NAME__ init
+npx -y __PACKAGE_NAME__ upgrade
+npx -y __PACKAGE_NAME__ doctor
 ```
 
 ## Branding And Release

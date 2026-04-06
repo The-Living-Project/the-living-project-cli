@@ -25,7 +25,6 @@ const packageJson = {
   description: releaseConfig.packageDescription,
   type: "module",
   bin: {
-    "living-project": "bin/living-project.js",
     "the-living-project-cli": "bin/living-project.js",
   },
   files: [
