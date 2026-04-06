@@ -360,7 +360,7 @@ function installWorkspace(options) {
     path.join(frameworkPath, "QUICKSTART.md"),
   );
   copyManagedFile(
-    path.join(workspaceSource, ".living-project", ".gitignore"),
+    path.join(workspaceSource, ".living-project", "gitignore.template"),
     path.join(frameworkPath, ".gitignore"),
   );
   copyManagedFile(

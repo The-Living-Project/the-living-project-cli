@@ -1,6 +1,6 @@
 {
   "name": "@the-living-project/the-living-project-cli",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "One-line installer and upgrader for The Living Project framework",
   "type": "module",
   "bin": {
