@@ -11,6 +11,7 @@ $installCommand = "npx -y @the-living-project/the-living-project-cli init"
 $workspaceFolder = ".living-project"
 $skillName = "living-project"
 $version = "3.0.3"
+$versionTag = "v" + ($version -replace "\.", "_")
 
 function New-WordApp {
     $word = New-Object -ComObject Word.Application
@@ -361,30 +362,14 @@ function Build-Whitepaper {
     }
 }
 
-$cheatSheetPaths = @(
-    (Join-Path $documentsDir "organic_development_cheatsheet.docx"),
-    (Join-Path $documentsDir "the_living_project_cheatsheet_v3.docx")
-)
+Build-CheatSheet `
+    -Path (Join-Path $documentsDir "the_living_project_cheatsheet_$versionTag.docx")
 
-$detailedCheatSheetPaths = @(
-    (Join-Path $documentsDir "organic_development_cheatsheet_v2.docx"),
-    (Join-Path $documentsDir "the_living_project_cheatsheet_v3_detailed.docx")
-)
-
-foreach ($path in $cheatSheetPaths) {
-    Build-CheatSheet -Path $path
-}
-
-foreach ($path in $detailedCheatSheetPaths) {
-    Build-CheatSheetV3 -Path $path
-}
+Build-CheatSheetV3 `
+    -Path (Join-Path $documentsDir "the_living_project_cheatsheet_${versionTag}_detailed.docx")
 
 Build-Whitepaper `
-    -DocxPath (Join-Path $documentsDir "Organic  Product Development.docx") `
-    -PdfPath (Join-Path $documentsDir "organic_development_v2.pdf")
-
-Build-Whitepaper `
-    -DocxPath (Join-Path $documentsDir "The Living Project Whitepaper.docx") `
-    -PdfPath (Join-Path $documentsDir "the_living_project_v3.pdf")
+    -DocxPath (Join-Path $documentsDir "the_living_project_whitepaper_$versionTag.docx") `
+    -PdfPath (Join-Path $documentsDir "the_living_project_whitepaper_$versionTag.pdf")
 
 Write-Host "Generated updated The Living Project documents in $documentsDir"
