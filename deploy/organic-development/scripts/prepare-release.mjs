@@ -25,7 +25,8 @@ const packageJson = {
   description: releaseConfig.packageDescription,
   type: "module",
   bin: {
-    "living-project": "./bin/living-project.js",
+    "living-project": "bin/living-project.js",
+    "the-living-project-cli": "bin/living-project.js",
   },
   files: [
     "bin",
@@ -51,7 +52,10 @@ const packageJson = {
   ],
   license: releaseConfig.license,
   author: releaseConfig.author,
-  repository: releaseConfig.repositoryUrl,
+  repository: {
+    type: "git",
+    url: toGitRepositoryUrl(releaseConfig.repositoryUrl),
+  },
   homepage: releaseConfig.homepageUrl,
   bugs: releaseConfig.bugsUrl,
   publishConfig: {
@@ -90,6 +94,13 @@ function renderTemplate(templatePath, outputPath, replacements) {
 
 function writeFile(filePath, content) {
   fs.writeFileSync(filePath, content, "utf8");
+}
+
+function toGitRepositoryUrl(url) {
+  if (url.startsWith("git+")) {
+    return url;
+  }
+  return `git+${url}`;
 }
 
 function assertConfig(config) {
