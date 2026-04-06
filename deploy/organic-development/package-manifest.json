@@ -1,0 +1,7 @@
+{
+  "packageId": "living-project",
+  "displayName": "The Living Project",
+  "version": "3.0.0",
+  "skillFolderName": "living-project",
+  "workspaceFolderName": ".living-project"
+}

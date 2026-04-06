@@ -1,0 +1,10 @@
+{
+  "packageName": "@the-living-project/the-living-project-cli",
+  "packageDescription": "One-line installer and upgrader for The Living Project framework",
+  "npmAccess": "public",
+  "author": "Chamal Abeysekera",
+  "license": "CC-BY-4.0",
+  "repositoryUrl": "https://github.com/The-Living-Project/the-living-project-cli.git",
+  "bugsUrl": "https://github.com/The-Living-Project/the-living-project-cli/issues",
+  "homepageUrl": "https://github.com/The-Living-Project/the-living-project-cli"
+}

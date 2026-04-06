@@ -1,0 +1,10 @@
+Published package:
+
+npx -y __PACKAGE_NAME__ init
+
+Local package folder:
+
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+
+Optional custom workspace name:
+powershell -ExecutionPolicy Bypass -File .\install.ps1 "My Project Workspace"

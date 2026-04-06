@@ -1,0 +1,45 @@
+{
+  "name": "@the-living-project/the-living-project-cli",
+  "version": "3.0.0",
+  "description": "One-line installer and upgrader for The Living Project framework",
+  "type": "module",
+  "bin": {
+    "living-project": "./bin/living-project.js"
+  },
+  "files": [
+    "bin",
+    "payload",
+    "CHEAT-SHEET.md",
+    "package-manifest.json",
+    "README.md",
+    "install.cmd",
+    "install.ps1",
+    "ONE-LINE-INSTALL.txt",
+    ".npmignore"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "living-project",
+    "ai-workflow",
+    "framework",
+    "installer",
+    "mcp",
+    "cli"
+  ],
+  "license": "CC-BY-4.0",
+  "author": "Chamal Abeysekera",
+  "repository": "https://github.com/The-Living-Project/the-living-project-cli.git",
+  "homepage": "https://github.com/The-Living-Project/the-living-project-cli",
+  "bugs": "https://github.com/The-Living-Project/the-living-project-cli/issues",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "start": "node ./bin/living-project.js",
+    "doctor": "node ./bin/living-project.js doctor",
+    "release:prepare": "node ./scripts/prepare-release.mjs",
+    "release:pack": "npm pack"
+  }
+}

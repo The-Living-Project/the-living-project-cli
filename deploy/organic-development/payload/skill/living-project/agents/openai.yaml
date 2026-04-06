@@ -1,0 +1,4 @@
+interface:
+  display_name: "The Living Project"
+  short_description: "Nature-inspired project workflow skill"
+  default_prompt: "Use $living-project to guide this project through the right phase and keep the work grounded in context."

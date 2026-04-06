@@ -1,0 +1,8 @@
+.organic-dev/
+organic-development-skill/
+test-output/
+deploy/organic-development/.npm-cache/
+deploy/organic-development/test-output/
+deploy/*.zip
+deploy/organic-development/*.tgz
+*.tgz

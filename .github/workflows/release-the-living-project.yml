@@ -1,0 +1,77 @@
+name: Release The Living Project
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "living-project-v*"
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+
+    defaults:
+      run:
+        shell: pwsh
+        working-directory: deploy/organic-development
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Prepare Release Assets
+        run: node .\scripts\prepare-release.mjs
+
+      - name: Smoke Test CLI
+        run: |
+          node .\bin\living-project.js init "CI Workspace" --root .\ci-output --skills-root .\ci-skills --client none
+          node .\bin\living-project.js doctor "CI Workspace" --root .\ci-output --skills-root .\ci-skills
+
+      - name: Pack npm Tarball
+        run: npm pack
+
+      - name: Build Shareable Zip
+        run: |
+          $manifest = Get-Content .\package-manifest.json -Raw | ConvertFrom-Json
+          $zipName = "living-project-$($manifest.version).zip"
+          $items = @(
+            ".\bin",
+            ".\payload",
+            ".\CHEAT-SHEET.md",
+            ".\.npmignore",
+            ".\install.cmd",
+            ".\install.ps1",
+            ".\ONE-LINE-INSTALL.txt",
+            ".\package-manifest.json",
+            ".\package.json",
+            ".\README.md"
+          )
+          Compress-Archive -Path $items -DestinationPath $zipName -Force
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: living-project-release
+          path: |
+            deploy/organic-development/*.tgz
+            deploy/organic-development/*.zip
+
+      - name: Publish To npm
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            deploy/organic-development/*.tgz
+            deploy/organic-development/*.zip
