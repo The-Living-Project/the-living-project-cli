@@ -37,10 +37,10 @@ The design goal is simple adoption:
 
 ## Core Documents
 
-- [Deployment Package README](c:\Users\KTK\Desktop\Organic Development 1\deploy\organic-development\README.md)
-- [Cheat Sheet](c:\Users\KTK\Desktop\Organic Development 1\deploy\organic-development\CHEAT-SHEET.md)
-- [Whitepaper](c:\Users\KTK\Desktop\Organic Development 1\WHITEPAPER.md)
-- [Release Notes 3.0.3](c:\Users\KTK\Desktop\Organic Development 1\RELEASE-NOTES-3.0.3.md)
+- [Deployment Package README](deploy/organic-development/README.md)
+- [Cheat Sheet](deploy/organic-development/CHEAT-SHEET.md)
+- [Whitepaper](WHITEPAPER.md)
+- [Release Notes 3.0.3](RELEASE-NOTES-3.0.3.md)
 
 ## Current State
 
