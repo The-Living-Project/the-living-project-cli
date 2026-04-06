@@ -10,6 +10,12 @@ Published package:
 npx -y @the-living-project/the-living-project-cli init
 ```
 
+Tested package version:
+
+```text
+@the-living-project/the-living-project-cli@3.0.3
+```
+
 Local package folder:
 
 ```powershell
@@ -180,3 +186,10 @@ If the work feels vague, go back to `SEED`.
 If the output feels generic, improve `NOURISH`.
 If the draft feels weak, iterate in `GROW`.
 If the result feels risky, run `PRUNE`.
+
+### Release Model
+
+- npm package is live and publicly installable
+- GitHub is the source of truth for changes and releases
+- trusted publishing is configured for future tagged releases
+- the standard release tag format is `living-project-vX.Y.Z`
